@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "12. Client-side Attacks.md",
+                "file": "16. Password Attacks.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "12. Client-side Attacks"
+              "title": "16. Password Attacks"
             }
           }
         ]
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "12. Client-side Attacks.md",
+                "file": "16. Password Attacks.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 12. Client-side Attacks"
+              "title": "Backlinks for 16. Password Attacks"
             }
           },
           {
@@ -114,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "12. Client-side Attacks.md",
+                "file": "16. Password Attacks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 12. Client-side Attacks"
+              "title": "Outgoing links from 16. Password Attacks"
             }
           },
           {
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "12. Client-side Attacks.md",
+                "file": "16. Password Attacks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 12. Client-side Attacks"
+              "title": "Outline of 16. Password Attacks"
             }
           }
         ],
@@ -172,8 +172,16 @@
   },
   "active": "70d3038964e4685c",
   "lastOpenFiles": [
-    "6. Information Gathering.md",
+    "21. The Metasploit Framework.md",
+    "19. Port Redirection and SSH Tunneling.md",
+    "20. Tunneling Through Deep Packet Inspection.md",
+    "18.  Linux Privilege Escalation.md",
+    "17. Windows Privilege Escalation.md",
+    "16. Password Attacks.md",
+    "15. Antivirus Evasion.md",
     "12. Client-side Attacks.md",
+    "13. Locating Public Exploits.md",
+    "6. Information Gathering.md",
     "11. Phising Basics.md",
     "10.  SQL Injection Attacks.md",
     "9. Common Web Application Attacks.md",
