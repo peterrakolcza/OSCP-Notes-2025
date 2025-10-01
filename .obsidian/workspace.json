@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "16. Password Attacks.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "16. Password Attacks"
+              "title": "README"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "16. Password Attacks.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 16. Password Attacks"
+              "title": "Outline of README"
             }
           }
         ],
@@ -170,14 +170,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "70d3038964e4685c",
+  "active": "7b51e48c5788fb26",
   "lastOpenFiles": [
+    "images/oscp.png",
+    "images/oscp+.svg",
+    "images",
+    "16. Password Attacks.md",
     "21. The Metasploit Framework.md",
     "19. Port Redirection and SSH Tunneling.md",
     "20. Tunneling Through Deep Packet Inspection.md",
     "18.  Linux Privilege Escalation.md",
     "17. Windows Privilege Escalation.md",
-    "16. Password Attacks.md",
     "15. Antivirus Evasion.md",
     "12. Client-side Attacks.md",
     "13. Locating Public Exploits.md",
