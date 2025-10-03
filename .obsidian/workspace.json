@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Checklist.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Checklist"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "Checklist.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of Checklist"
             }
           }
         ],
@@ -170,25 +170,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "7b51e48c5788fb26",
+  "active": "70d3038964e4685c",
   "lastOpenFiles": [
+    "Miscellaneous.md",
+    "Checklist.md",
+    "images/ad-map.png",
+    "15. Antivirus Evasion.md",
+    "16. Password Attacks.md",
+    "19. Port Redirection and SSH Tunneling.md",
+    "20. Tunneling Through Deep Packet Inspection.md",
+    "21. The Metasploit Framework.md",
+    "17. Windows Privilege Escalation.md",
+    "README.md",
     "images/oscp.png",
     "images/oscp+.svg",
     "images",
-    "16. Password Attacks.md",
-    "21. The Metasploit Framework.md",
-    "19. Port Redirection and SSH Tunneling.md",
-    "20. Tunneling Through Deep Packet Inspection.md",
     "18.  Linux Privilege Escalation.md",
-    "17. Windows Privilege Escalation.md",
-    "15. Antivirus Evasion.md",
     "12. Client-side Attacks.md",
     "13. Locating Public Exploits.md",
     "6. Information Gathering.md",
     "11. Phising Basics.md",
     "10.  SQL Injection Attacks.md",
     "9. Common Web Application Attacks.md",
-    "Miscellaneous.md",
     "8. Introduction to Web Application Attacks.md"
   ]
 }
