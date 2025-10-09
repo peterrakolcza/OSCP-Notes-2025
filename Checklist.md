@@ -1,5 +1,12 @@
 A list of important checks to perform in the OSCP certification (or in a real pentest) for each protocol. 
 
+RUBENES tips:
+- minden credet megprobalni mindenhova
+- bash history
+- /etc/passwd x helyére hash-t berakod, azt fogja hasznalni, MD5
+- milyen processek futnak, lehet valami fut higher priv-vel
+- Windows: Sticky Notes
+
 # Privilege Escalation Checks
 ## Linux PE Checks
 
