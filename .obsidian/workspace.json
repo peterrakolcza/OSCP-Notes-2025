@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "19. Port Redirection and SSH Tunneling.md",
+                "file": "20. Tunneling Through Deep Packet Inspection.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "19. Port Redirection and SSH Tunneling"
+              "title": "20. Tunneling Through Deep Packet Inspection"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "19. Port Redirection and SSH Tunneling.md",
+                "file": "20. Tunneling Through Deep Packet Inspection.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 19. Port Redirection and SSH Tunneling"
+              "title": "Outline of 20. Tunneling Through Deep Packet Inspection"
             }
           }
         ],
@@ -172,18 +172,18 @@
   },
   "active": "70d3038964e4685c",
   "lastOpenFiles": [
-    "18. Linux Privilege Escalation.md",
+    "21. The Metasploit Framework.md",
+    "20. Tunneling Through Deep Packet Inspection.md",
     "19. Port Redirection and SSH Tunneling.md",
+    "18. Linux Privilege Escalation.md",
     "photorec.ses",
     "photorec.se2",
     "Checklist.md",
     "16. Password Attacks.md",
     "17. Windows Privilege Escalation.md",
-    "20. Tunneling Through Deep Packet Inspection.md",
     "Miscellaneous.md",
     "images/ad-map.png",
     "15. Antivirus Evasion.md",
-    "21. The Metasploit Framework.md",
     "README.md",
     "images/oscp.png",
     "images/oscp+.svg",
