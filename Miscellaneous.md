@@ -390,7 +390,7 @@ C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 ~/.xsession
 ```
 
-**Discovering KDBX files**
+## Discovering KDBX files
 
 1. In Windows
 
