@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "23.  Attacking Active Directory Authentication.md",
+                "file": "24. Lateral Movement in Active Directory.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "23.  Attacking Active Directory Authentication"
+              "title": "24. Lateral Movement in Active Directory"
             }
           }
         ]
@@ -143,13 +143,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23.  Attacking Active Directory Authentication.md",
+                "file": "24. Lateral Movement in Active Directory.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 23.  Attacking Active Directory Authentication"
+              "title": "Outline of 24. Lateral Movement in Active Directory"
             }
           }
         ],
@@ -172,20 +172,22 @@
   },
   "active": "70d3038964e4685c",
   "lastOpenFiles": [
-    "16. Password Attacks.md",
+    "26. Attacking AWS Cloud Infrastructure.md",
+    "25. Enumerating AWS Cloud Infrastructure.md",
+    "Checklist.md",
+    "24. Lateral Movement in Active Directory.md",
+    "Miscellaneous.md",
     "23.  Attacking Active Directory Authentication.md",
+    "16. Password Attacks.md",
     "17. Windows Privilege Escalation.md",
     "15. Antivirus Evasion.md",
     "13. Locating Public Exploits.md",
-    "Miscellaneous.md",
-    "24. Lateral Movement in Active Directory.md",
     "18. Linux Privilege Escalation.md",
     "19. Port Redirection and SSH Tunneling.md",
     "20. Tunneling Through Deep Packet Inspection.md",
     "21. The Metasploit Framework.md",
     "22. Active Directory Introduction and Enumeration.md",
     "README.md",
-    "Checklist.md",
     "photorec.ses",
     "photorec.se2",
     "images/ad-map.png",

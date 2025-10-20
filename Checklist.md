@@ -1,6 +1,6 @@
 A list of important checks to perform in the OSCP certification (or in a real pentest) for each protocol. 
 
-RUBENES tips:
+RUBEN-es tips:
 - minden credet megprobalni mindenhova
 - bash history
 - /etc/passwd x helyére hash-t berakod, azt fogja hasznalni, MD5
